@@ -7,7 +7,7 @@ pub fn run() {
     let name = "ammar";
     println!("my name is {}", name);
 
-    // To modify variables we should use the mut keyword
+    // To modify variables we should use the "mut" keyword
     let mut age = 26;
     println!("and my age is {}", age);
     age += 1;
