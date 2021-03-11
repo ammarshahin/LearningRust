@@ -1,13 +1,17 @@
 pub fn run() {
     println!("Hello, world!");
+
+    // default formatter
     println!("My name is {}", "ammar");
     println!("My name is {} and I'm {}", "ammar", 26);
+
+    // numbered formatter
     println!(
         "My name is {0} and I'm {1}. {0} loves to code in rust",
         "ammar", 26
     );
 
-    // Named Arguments
+    // Named Arguments formatter
     println!(
         "{name} likes to play {activity}",
         name = "ammar",
@@ -17,7 +21,7 @@ pub fn run() {
     // Placeholder traits
     println!("Binary: {:b}, Hex: {:x}, Octal: {:o}", 10, 10, 10);
 
-    // Placeholder for debug trait
+    // Placeholder for debug trait [Array formatter]
     println!("{:?}", (12, true, "hello"));
 
     // Basic math
