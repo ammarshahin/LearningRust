@@ -10,4 +10,4 @@ edition = "2018"
 
 [[bin]]
 name = "learning_rust_repo"
-path = "src/main.rs"
+path = "src/the_book/main.rs"
