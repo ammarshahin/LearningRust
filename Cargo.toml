@@ -10,4 +10,4 @@ edition = "2018"
 
 [[bin]]
 name = "learning_rust_repo"
-path = "src/the_book/main.rs"
+path = "src/traversy_media_crash_course/main.rs"
