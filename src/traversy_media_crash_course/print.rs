@@ -18,6 +18,9 @@ pub fn run() {
         activity = "video Games"
     );
 
+    // float formatter
+    println!("{:0.2}", 1.2354);
+
     // Placeholder traits
     println!("Binary: {:b}, Hex: {:x}, Octal: {:o}", 10, 10, 10);
 
