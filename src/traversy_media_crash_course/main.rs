@@ -9,7 +9,8 @@
 // mod loops;
 // mod functions;
 // mod pointers_and_references;
-mod struct;
+// mod structs;
+mod structs_oop;
 
 fn main() {
     // print::run();
@@ -21,7 +22,8 @@ fn main() {
     // vectors::run();
     // conditionals::run();
     // loops::run();
-    // functions::run();
+    //functions::run();
     // pointers_and_references::run();
-    struct::run();
+    // structs::run();
+    structs_oop::run();
 }

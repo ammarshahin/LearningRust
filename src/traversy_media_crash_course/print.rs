@@ -29,4 +29,9 @@ pub fn run() {
 
     // Basic math
     println!("10 + 10 = {}", 10 + 10);
+
+    // format
+    let my_name = format!("ammar shahin");
+
+    println!("my name is {}", my_name);
 }
