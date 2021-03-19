@@ -1,23 +1,29 @@
-// Arrays are fixed lists where elements are of the same data types
+//! Arrays are fixed lists where elements are of the same data types
 
 pub fn run() {
-    // Define array >> let array_name: [data_type; number of elements] = [the elements];
-    let numbers: [u8; 5] = [1, 2, 3, 4, 5];
-    // // Define array >> simpler form
-    // let arr = [1, 2, 3, 4, 5];
+    //* Define array >> let array_name: [data_type; number of elements] = [the elements];
+    let _arr0: [u8; 5] = [1, 2, 3, 4, 5];
 
-    println!("The array contents are: {:?}", numbers);
+    //* Initializing arrays
 
-    // print the array
-    for index in 0..numbers.len() {
-        println!("array[{}] = {}", index, numbers[index]);
+    //* 1 - fill all of the array
+    let _arr1 = [1, 2, 3, 4, 5]; // equivalent to let _arr1: [i32; 5] = [1, 2, 3, 4, 5];
+
+    //* 2 - fill with the same value
+    let _arr2 = [0; 5]; // all 5 elements values are set to 0
+
+    //* 3 - make mutable array
+    let mut _arr3 = [0; 5]; // all 5 elements values are set to 0
+
+    //*  fill the array
+    for index in 0.._arr3.len() {
+        _arr3[index] = index * 2;
     }
 
-    let mut arr: [u8; 5] = [10, 20, 30, 40, 50];
-
-    // fill and print the array
-    for index in 0..arr.len() {
-        arr[index] *= 2;
-        println!("arr[{}] = {}", index, arr[index]);
+    //* print the array
+    for index in 0.._arr3.len() {
+        println!("array[{}] = {}", index, _arr3[index]);
     }
+    //* Or
+    // println!("The array contents are: {:?}", numbers);
 }

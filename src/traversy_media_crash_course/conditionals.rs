@@ -15,6 +15,6 @@ pub fn run() {
     }
 
     // Shorthand If (like ternary operation)
-    let is_of_age = if age >= 21 { true } else { false };
+    let is_of_age: bool = if age >= 21 { true } else { false };
     println!("Is Of Age: {}", is_of_age)
 }

@@ -1,4 +1,4 @@
-mod print;
+// mod print;
 // mod vars;
 // mod types;
 // mod strings;
@@ -8,9 +8,10 @@ mod print;
 // mod conditionals;
 // mod loops;
 // mod functions;
+mod pointers_and_references;
 
 fn main() {
-    print::run();
+    // print::run();
     // vars::run();
     // types::run();
     // strings::run();
@@ -19,5 +20,6 @@ fn main() {
     // vectors::run();
     // conditionals::run();
     // loops::run();
-    // functions::run();
+    //functions::run();
+    pointers_and_references::run();
 }

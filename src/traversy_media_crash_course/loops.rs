@@ -3,7 +3,7 @@
 pub fn run() {
     let mut count = 0;
 
-    // Infinite Loop
+    // 1- Infinite Loop >> loop >> initiate a loop without any restrictions
     // loop {
     //     count += 1;
     //     println!("Number: {}", count);
@@ -13,34 +13,38 @@ pub fn run() {
     //     }
     // }
 
-    // While Loop (FizzBuzz)
-
-    // condition
-    // while count <= 100 {
-    //     if count % 15 == 0 {
+    // While Loop (FizzBuzz) >> conditional loop
+    // while count <= 100
+    // {
+    //     if (count % 15) == 0
+    //     {
     //         println!("fizzbuzz");
-    //     } else if count % 3 == 0 {
+    //     }
+    //     else if (count % 3) == 0
+    //     {
     //         println!("fizz");
-    //     } else if count % 5 == 0 {
+    //     }
+    //     else if (count % 5) == 0
+    //     {
     //         println!("buzz")
-    //     } else {
+    //     }
+    //     else
+    //     {
     //         println!("{}", count);
     //     }
-
-    //     // Increment
-    //     count += 1;
+    //     count += 1; // Increment
     // }
 
     // For Range (the range can be functions that returns values)
-    for x in 0..100 {
-        if x % 15 == 0 {
-            println!("fizzbuzz");
-        } else if x % 3 == 0 {
-            println!("fizz");
-        } else if x % 5 == 0 {
-            println!("buzz")
-        } else {
-            println!("{}", x);
-        }
-    }
+    // for x in 0..100 {
+    //     if x % 15 == 0 {
+    //         println!("fizzbuzz");
+    //     } else if x % 3 == 0 {
+    //         println!("fizz");
+    //     } else if x % 5 == 0 {
+    //         println!("buzz")
+    //     } else {
+    //         println!("{}", x);
+    //     }
+    // }
 }

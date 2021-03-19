@@ -2,6 +2,8 @@
 // Variables are immutable by default
 // Rust is a block-scoped language
 
+const SIZE: usize = 10; // make a global const variable
+
 pub fn run() {
     // Variables are immutable by default == constants
     let name = "ammar";
