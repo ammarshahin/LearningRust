@@ -1,4 +1,4 @@
-//! Struct as classes
+//! Struct as class
 
 //* Define the elements of the class (Attributes)
 struct Rec {
@@ -6,7 +6,7 @@ struct Rec {
     hight: u8,
 }
 
-//* Define methods of the class (functions)
+//* Define the methods of the class (functions)
 impl Rec {
     //* Explicit Constructor
     fn new(w: u8, h: u8) -> Rec {
@@ -43,7 +43,7 @@ pub fn run() {
     let mut c1 = Rec { hight: 6, width: 4 };
 
     //* using the explicit constructor
-    let c2 = Rec::new(6, 4);
+    let _c2 = Rec::new(6, 4);
 
     //* change the internal attributes using the setters
     c1.change_width(8);
@@ -51,8 +51,8 @@ pub fn run() {
 
     println!(
         "area of the rectangle {} * {} = {}",
-        c1.get_width(),
-        c1.get_hight(),
-        c1.get_area()
+        _c2.get_width(),
+        _c2.get_hight(),
+        _c2.get_area()
     );
 }
