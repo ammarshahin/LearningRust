@@ -9,4 +9,8 @@ pub fn run() {
         "{} is from {} and his age is {}",
         person.0, person.1, person.2
     );
+
+    let blue: (u8, u8, u8) = (20, 20, 20); // is equivalent to >> let blue = (20, 20, 20); // no type annotation required
+    let (x, y, z) = blue; // destruct the tuple
+    println!("Color : ({}, {}, {})", x, y, z);
 }

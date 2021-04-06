@@ -1,5 +1,77 @@
+#![allow(dead_code)] // allow all of the dead code in the file
+
 pub fn run() {
-    if_statement();
+    // if_statement();
+    // loops();
+    match_statement();
+}
+
+fn match_statement() {
+    //* Notes:
+    //      - the match statement should return the same value type for all of the cases
+    //      - the cases end with , if there was a single statement with no {}
+    //      - the cases don't end with , if there was a multiple statements between {}
+    //      - match must be exhaustive patters >> meaning that it must cover all of the possible cases
+    //      - _ can match any value (default case)
+    let x = 25;
+    match x {
+        num if num > 10 => {
+            println!(">10");
+        }
+        num if num < 10 => {
+            println!("<10");
+        }
+        _ => {
+            println!("____");
+        }
+    }
+
+    let y = match x {
+        num if num > 10 => 50,
+        num if num < 10 => 5,
+        _ => 0,
+    };
+    println!("y = {}", y);
+
+    let z = match x {
+        10 => 50,     // check single value
+        20..=30 => 5, // check range of values
+        _ => 0,       // default state
+    };
+    println!("z = {}", z);
+}
+
+fn loops() {
+    // loop loop
+    'a: loop {
+        // run forever or till the loop break
+        loop {
+            let mut x = 0;
+            loop {
+                x += 1;
+                if x >= 100 {
+                    println!("loop break!!!! {}", x);
+                    break 'a; // break the labeled loop 'a
+                }
+            }
+        }
+    }
+
+    // while loop
+    let mut x = 0;
+    while x < 100 {
+        x += 1;
+    }
+    println!("while break!!!! {}", x);
+
+    // for loop
+    for _ in 0..100 {
+        // loop for 100 times doing nothing (no index increment even)
+    }
+
+    for (i, elem) in (40..=50).enumerate() {
+        println!("arr[{}] = {}", i, elem);
+    }
 }
 
 fn if_statement() {
