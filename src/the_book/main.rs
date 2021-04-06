@@ -3,9 +3,7 @@
 // mod ownership;
 mod references_and_borrowing;
 
-fn main() 
-
-{
+fn main() {
     // guessing_game_tutorial::run();
     // var_and_mut::run();
     //  ownership::run();

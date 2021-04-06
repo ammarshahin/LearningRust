@@ -6,6 +6,18 @@
          
          https://doc.rust-lang.org/book/
 
-<p> 2- Traversy Media Crash course: </p>
+<p> 2- Traversy Media Crash Course: </p>
          
          https://www.youtube.com/watch?v=zF34dRivLOw
+
+<p> 3-  Ultimate Rust Crash Course on udemy: </p>
+
+        https://www.udemy.com/course/ultimate-rust-crash-course/
+
+<p> 4-  The Rust Programming Language on udemy: </p>
+
+        https://www.udemy.com/course/rust-lang/
+
+<p> 5-  Learn Rust by Building Real Applications on udemy: </p>
+
+        https://www.udemy.com/course/rust-fundamentals/
