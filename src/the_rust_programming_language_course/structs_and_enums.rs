@@ -3,7 +3,24 @@
 pub fn run() {
     //structs();
     // enums();
-    option();
+    // option();
+    // generic_structs();
+}
+
+// T is anytype that can construct the struct >> will be replaced with the passed value type
+#[derive(Debug)]
+struct GenericPoint<T> {
+    x: T,
+    y: T,
+}
+
+fn generic_structs() {
+    let a = GenericPoint { x: 1, y: 2 }; // T is now i32
+    let b = GenericPoint { x: 1.1, y: 2.5 }; // T is now f64
+    let c: GenericPoint<u8> = GenericPoint { x: 6, y: 12 }; // Here we annotate the value ourselves >>  T is now u8
+    println!("a = {:?}", a);
+    println!("b = {:?}", b);
+    println!("c = {:?}", c);
 }
 
 fn option() {
@@ -51,11 +68,9 @@ fn enums() {
         Color::Green => println!("Green"),
         Color::RgpColor(0, 0, 0)
         // OR condition inside the match
-        | Color::Cmyk {
-            yellow: _, // any value of yellow
-            gray: _, // any value of gray
-            black: 255,
-        } => println!("BLACK"), // handle a special value of Rgb color
+        // handle a special value of Rgb color. Or we can use the .. after for the wanted variant to indicate that we only care for it
+        // | Color::Cmyk { yellow: _, gray: _, black: 255} => println!("BLACK"),
+        | Color::Cmyk { black: 255,..} => println!("BLACK"), // are the same 
         Color::RgpColor(r, g, b) => println!("An RGB color with ({} ,{} ,{})", r, g, b), // handle any other value of Rgb color
         Color::Cmyk {
             yellow: 50,

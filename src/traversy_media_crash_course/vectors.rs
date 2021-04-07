@@ -1,5 +1,4 @@
 // Vectors - Resizable arrays
-
 pub fn run() {
     let mut numbers: Vec<u8> = vec![1, 2, 3, 4];
 
