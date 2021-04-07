@@ -28,12 +28,12 @@ pub fn run() {
         1 => println!("One!"),
         
         // Match several values
-        2 | 3 | 5 | 7 | 11 => println!("This is a prime"),
+        2 | 3 | 5 | 7 | 11 => println!("This is a prime"), // the | is for or values together
         
         // Match an inclusive range
         13..=19 => println!("A teen"),
-        //* Handle the rest of cases (Default Case) 
-        _ => println!("Ain't special")
+        //* Handle the rest of cases (Default Case)
+        _ => () // the _ is for the rest of the cases , And () is to do nothing
     }
 
     let boolean = true;

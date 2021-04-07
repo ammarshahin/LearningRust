@@ -2,7 +2,29 @@
 
 pub fn run() {
     //structs();
-    enums();
+    // enums();
+    option();
+}
+
+fn option() {
+    let x = 50;
+    let y = 2;
+    let result = if y == 0 { None } else { Some(x / y) };
+    match result {
+        Some(i) => println!("{} / {} = {}", x, y, i),
+        None => println!("Cannot divide by zero!!!"),
+    }
+
+    // the if let keyword
+    // The let statement will allow you to check whether or not what's on the right hand side can in fact be
+    // assigned to what's on the left and if it can be assigned then the evaluation of the later statement will give true.
+    //
+    // Some(_) meaning for any valid value that Some can hold
+    if let Some(_) = result {
+        println!("{} / {} = {}", x, y, result.unwrap()); // unwrap() >> Returns the contained [`Some`] value or a provided default.
+    } else {
+        println!("{} / {} = {:?}", x, y, result.unwrap_or_else(|| 0)); // unwrap_or_else() >> Returns the contained [`Some`] value or computes it from a closure.
+    }
 }
 
 enum Color {
