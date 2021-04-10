@@ -2,3 +2,6 @@
 /.dist
 /.vscode
 /.idea
+*.gitignore
+*.json
+*.xml
