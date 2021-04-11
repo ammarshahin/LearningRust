@@ -5,6 +5,9 @@ static VAR_STATIC_IMMUT: u8 = 50; // HAS a fixed address
 static mut VAR_STATIC_MUT: u8 = 50; // declare a global variable that can be mutated any where >> BAD!!!! can be used as unsafe set of rust
 
 pub fn run() {
+    // Creating an uninitialized variable
+    let x: i32; // x is uninitialized and cannot be used without assigning a value to it
+
     let b = 1321321;
     println!("the size of {} is {}", b, mem::size_of_val(&b));
     let x = i32::pow(3, 2);
