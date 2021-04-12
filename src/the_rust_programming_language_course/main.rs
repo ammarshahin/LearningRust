@@ -12,7 +12,9 @@
 // mod into_trait;
 // mod drop_trait;
 // mod operator_overloading;
-mod monomorphism;
+// mod monomorphism;
+// mod life_time;
+mod testing;
 
 fn main() {
     // variables::run();
@@ -29,7 +31,9 @@ fn main() {
     // into_trait::run();
     // drop_trait::run();
     // operator_overloading::run();
-    monomorphism::run();
+    // monomorphism::run();
+    // life_time::run();
+    testing::run();
 }
 
 // Skipped lessons >> 30.HashMap , 31.HashSet
