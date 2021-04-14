@@ -3,7 +3,9 @@
 // mod ownership;
 // mod references_and_borrowing;
 // mod structs;
-mod enums;
+// mod enums;
+// mod strings;
+mod error_handling;
 
 fn main() {
     // guessing_game_tutorial::run();
@@ -11,5 +13,7 @@ fn main() {
     //  ownership::run();
     // references_and_borrowing::run();
     // structs::run();
-    enums::run();
+    // enums::run();
+    // strings::run();
+    error_handling::run();
 }

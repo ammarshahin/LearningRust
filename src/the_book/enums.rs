@@ -44,7 +44,7 @@ fn if_let_discover() {
     }
 
     // is the same as
-    if let Some(3) = some_u8_value {
+    if let Some(3u8) = some_u8_value {
         println!("three");
     } else {
         // handle the rest of the cases if there was a need for it
