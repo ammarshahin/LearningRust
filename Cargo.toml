@@ -1,6 +1,6 @@
 [package]
 name = "learning_rust_repo"
-version = "0.1.0"
+version = "0.4.0"
 authors = ["ammarshahin <ammar0shahin@gmail.com>"]
 edition = "2018"
 
@@ -11,4 +11,4 @@ rand = "0.5.5"
 
 [[bin]]
 name = "learning_rust_repo"
-path = "src/the_book/main.rs"
+path = "src/learn_rust_by_building_real_applications/main.rs"

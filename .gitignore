@@ -1,7 +1,5 @@
-/target
+target
 /.dist
 /.vscode
 /.idea
 *.gitignore
-*.json
-*.xml
