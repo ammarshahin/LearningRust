@@ -5,7 +5,10 @@
 // mod structs;
 // mod enums;
 // mod strings;
-mod error_handling;
+// mod error_handling;
+
+// mod generics_and_traits;
+mod life_time;
 
 fn main() {
     // guessing_game_tutorial::run();
@@ -15,5 +18,7 @@ fn main() {
     // structs::run();
     // enums::run();
     // strings::run();
-    error_handling::run();
+    // error_handling::run();
+    // generics_and_traits::run();
+    life_time::run();
 }
