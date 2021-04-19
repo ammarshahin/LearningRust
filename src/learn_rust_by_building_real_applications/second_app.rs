@@ -1,7 +1,6 @@
 mod http;
 mod server;
-use http::Method;
-use http::Request;
+
 use server::Server;
 
 pub fn run() {
