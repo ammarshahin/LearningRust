@@ -1,6 +1,6 @@
-use crate::second_app::http::Request;
+use crate::second_app::http::{Request, Response, StatusCode};
 use std::convert::TryFrom;
-use std::io::Read;
+use std::io::{Read, Write};
 use std::net::TcpListener;
 
 pub struct Server {
@@ -32,6 +32,11 @@ impl Server {
 
                     match Request::try_from(&buffer[0..=num]) {
                         Ok(request) => {
+                            let response = Response::new(
+                                StatusCode::Ok,
+                                Some("<h1>It Works!!!!</h1>".to_string()),
+                            );
+                            write!(stream, "{}", response);
                             dbg!(request);
                         }
                         Err(_) => {}
