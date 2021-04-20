@@ -33,11 +33,7 @@ impl Server {
             let mut buffer = [0; 1024];
             match stream.read(&mut buffer) {
                 Ok(num) => {
-                    println!(
-                        "Received a new request of {}byte:\n{}",
-                        num,
-                        String::from_utf8_lossy(&buffer)
-                    );
+                    // println!( "Received a new request of {}byte:\n{}", num, String::from_utf8_lossy(&buffer));
 
                     let response = match Request::try_from(&buffer[0..=num]) {
                         Ok(request) => handler.handle_request(&request),
