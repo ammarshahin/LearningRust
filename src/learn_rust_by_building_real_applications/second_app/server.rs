@@ -1,7 +1,16 @@
-use crate::second_app::http::{Request, Response, StatusCode};
+use crate::second_app::http::{ParseError, Request, Response, StatusCode};
 use std::convert::TryFrom;
 use std::io::Read;
 use std::net::TcpListener;
+
+pub trait Handler {
+    fn handle_request(&mut self, request: &Request) -> Response;
+
+    fn bad_request_handle(&mut self, e: &ParseError) -> Response {
+        println!("Failed to parse request: {}", e);
+        Response::new(StatusCode::BadRequest, None)
+    }
+}
 
 pub struct Server {
     addr: String,
@@ -12,7 +21,7 @@ impl Server {
         Self { addr }
     }
 
-    pub fn run(self) {
+    pub fn run(self, mut handler: impl Handler) {
         println!("listening on {}", self.addr);
         let listener = TcpListener::bind(&self.addr).unwrap();
         loop {
@@ -24,29 +33,14 @@ impl Server {
             let mut buffer = [0; 1024];
             match stream.read(&mut buffer) {
                 Ok(num) => {
-                    println!(
-                        "Received a new request of {}byte:\n{}",
-                        num,
-                        String::from_utf8_lossy(&buffer)
-                    );
+                    // println!( "Received a new request of {}byte:\n{}", num, String::from_utf8_lossy(&buffer));
 
-                    let result = match Request::try_from(&buffer[0..=num]) {
-                        Ok(request) => {
-                            let response = Response::new(
-                                StatusCode::Ok,
-                                Some("<h1>IT Works!!!!</h1>".to_string()),
-                            );
-                            dbg!(request);
-                            response.send(&mut stream)
-                        }
-                        Err(e) => {
-                            println!("Failed to parse request: {}", e);
-                            let response = Response::new(StatusCode::BadRequest, None);
-                            response.send(&mut stream)
-                        }
+                    let response = match Request::try_from(&buffer[0..=num]) {
+                        Ok(request) => handler.handle_request(&request),
+                        Err(e) => handler.bad_request_handle(&e),
                     };
 
-                    if let Err(e) = result {
+                    if let Err(e) = response.send(&mut stream) {
                         println!("Failed to send the response: {}", e);
                     }
                 }
