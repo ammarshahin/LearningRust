@@ -1,5 +1,5 @@
 pub fn verse(n: u32) -> String {
-    let mut ret = String::new();
+    let ret;
     if n == 0 {
         ret = "No more bottles of beer on the wall, no more bottles of beer.\n\
             Go to the store and buy some more, 99 bottles of beer on the wall.\n"
