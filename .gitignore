@@ -1,5 +1,6 @@
 target
 /.dist
 /.vscode
-/.idea
+*.idea
 *.gitignore
+*.lock

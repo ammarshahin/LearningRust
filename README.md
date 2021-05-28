@@ -21,3 +21,7 @@
 <p> 5-  Learn Rust by Building Real Applications on udemy: </p>
 
         https://www.udemy.com/course/rust-fundamentals/
+
+<p> 6-  The crust of rust by Jon Gjengset on youtube: </p>
+
+        https://www.youtube.com/playlist?list=PLqbS7AVVErFiWDOAVrPt7aYmnuuOLYvOa
