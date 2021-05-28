@@ -8,7 +8,8 @@
 // mod error_handling;
 
 // mod generics_and_traits;
-mod life_time;
+// mod life_time;
+mod testing;
 
 fn main() {
     // guessing_game_tutorial::run();
@@ -20,5 +21,6 @@ fn main() {
     // strings::run();
     // error_handling::run();
     // generics_and_traits::run();
-    life_time::run();
+    // life_time::run();
+    testing::run();
 }
