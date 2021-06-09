@@ -11,4 +11,4 @@ rand = "0.5.5"
 
 [[bin]]
 name = "learning_rust_repo"
-path = "src/learn_rust_by_building_real_applications/main.rs"
+path = "src/the_book/main.rs"
