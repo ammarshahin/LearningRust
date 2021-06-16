@@ -1,7 +1,7 @@
 // + zero or more repartition
 // * means any number of elements grater than zero
 // ? means 0 or 1 of this pattern
-#![allow(unused_macros, unused_mut)]
+#![allow(unused_macros)]
 
 /****************************************************** trait implementation ****************************************/
 trait MaxValue {
@@ -35,6 +35,7 @@ fn max_value_test() {
 macro_rules! avec {
     // the + sign means one or more repetition of the first argument separated by a ,
     ($($element:expr),* $(,)?) => {{
+        #[allow(unused_mut)]
         let mut vs = Vec::new();
         // $(statement)*  => repeat the statements between the brackets as many times as the pattern repeats (for every element input)
         $(vs.push($element);)*
@@ -43,20 +44,23 @@ macro_rules! avec {
 
     // one element entered repeated a count times
     ($element:expr; $count:expr) => {{
-        let mut vs = Vec::new();
         let value = $element;
-        for _ in 0..$count {
-            vs.push(value);
-        }
+        let count = $count;
+        let mut vs = Vec::with_capacity(count);
+        // vs.extend(std::iter::repeat(value).take(count));
+        vs.resize(count,value); // more efficient
         vs
     }};
 }
 
 #[test]
 fn one_element_repeated() {
-    let x = avec![42; 8];
-    assert_eq!(x.len(), 8);
-    assert_eq!(x, vec![42, 42, 42, 42, 42, 42, 42, 42]);
+    let x = avec![42; 16];
+    assert_eq!(x.len(), 16);
+    assert_eq!(
+        x,
+        vec![42, 42, 42, 42, 42, 42, 42, 42, 42, 42, 42, 42, 42, 42, 42, 42]
+    );
 }
 
 #[test]
