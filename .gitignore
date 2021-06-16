@@ -1,6 +1,7 @@
+.dist
+.vscode
+.gradle
+.idea
 target
-/.dist
-/.vscode
-*.idea
-*.gitignore
 *.lock
+*.gitignore

@@ -1,6 +1,9 @@
-// + zero or more repartition
-// * means any number of elements grater than zero
-// ? means 0 or 1 of this pattern
+/*
++ zero or more repartition
+* means any number of elements grater than zero
+? means 0 or 1 of this pattern
+*/
+
 #![allow(unused_macros)]
 
 /****************************************************** trait implementation ****************************************/
