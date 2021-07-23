@@ -9,7 +9,6 @@
 //*                         single_test >> cargo test it_works  >> will run the it_works test only
 //*                         multiple_tests >> cargo test it >> will run all of the tests that starts with "it" word >> [it_works , it_fails]
 //*                         ignored_tests >> cargo test -- --ignored >> will run all of the ignored tests only >> [expensive_test]
-//*                         ignored_tests >> cargo test -- --ignored >> will run all of the ignored tests only >> [expensive_test]
 
 //*                         specific integration test >> cargo test --test integration_test >> will run only the integration_test
 
@@ -17,6 +16,11 @@
 pub fn run() {
     test_function();
 }
+
+pub fn test_function() -> i64 {
+    return 4;
+}
+
 
 #[derive(Debug)]
 struct Rectangle {
@@ -28,10 +32,6 @@ impl Rectangle {
     fn can_hold(&self, other: &Rectangle) -> bool {
         self.width > other.width && self.height > other.height
     }
-}
-
-pub fn test_function() -> i64 {
-    return 4;
 }
 
 pub struct Guess {
@@ -51,7 +51,7 @@ impl Guess {
 
 #[cfg(test)]
 mod tests {
-    use super::*;
+    use super::*; // import all of the outer functions and variables to the mod scope
     #[test]
     fn it_works() {
         assert_eq!(2 + 2, test_function());

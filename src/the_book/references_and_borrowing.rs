@@ -3,9 +3,10 @@
 //*     - References must always be valid.
 
 pub fn run() {
+    
     let mut s1 = String::from("hello");
 
-    let len = calculate_length(&s1); // pass by refrence
+    let len = calculate_length(&s1); // pass by reference
 
     println!("The length of '{}' is {}.", s1, len);
 

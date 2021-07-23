@@ -34,7 +34,7 @@ pub fn run() {
 }
 
 fn if_let_discover() {
-    // The if let syntax lets you combine if and let into a less verbose way to handle values that match one pattern while ignoring the rest.
+    // The if let syntax lets you combine if and let into lesser verbose syntax to handle values that match one pattern while ignoring the rest.
     // Using if let means less typing, less indentation, and less boilerplate code. However, you lose the exhaustive checking that match enforces.
 
     let some_u8_value = Some(3u8);
@@ -55,6 +55,7 @@ fn option_discover() {
     // option<T> with match
     // when declare a Option<T> variable as None variant we must annotate it's data type since the compiler can't know what the data will be put into it
     // while when using the Some variant we don't have to annotate it as it will be known by the initialization value
+
     let mut option: Option<u8> = None;
     match option {
         None => println!("Null value!!!"),
@@ -78,8 +79,10 @@ fn enums_discover() {
     println!("four: {:?}", home);
     println!("six: {:?}", loopback);
 
-    let c = Coin::Quarter(UsState::Alaska);
-    value_in_cents(c);
+    //let c = Coin::Quarter(UsState::Alabama);
+    let c = Coin::Penny;
+    let value = value_in_cents(c);
+    println!("the value is {}", value);
 }
 
 fn value_in_cents(coin: Coin) -> u8 {

@@ -65,7 +65,7 @@ where
 // Generic Function
 fn largest_number<T>(list: &[T]) -> &T
 where
-    T: PartialOrd, // T has to implement the PartialOrd trait so that we can compare them and determine the largest
+    T: PartialOrd, // T has to implement the PartialOrd trait so that we can compare them and determine the largest (to use the < > = compressions)
 {
     let mut largest = &list[0];
     for x in list {

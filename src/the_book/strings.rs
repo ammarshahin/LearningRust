@@ -3,7 +3,7 @@
 pub fn run() {
     let mut empty_string = String::new();
     let init_string1 = String::from("init String");
-    let init_string2 = "init String".to_string();
+    let init_string2 = "init String".to_string(); // to_string === to_owned
 
     // append a single char to the string
     empty_string.push('a');
@@ -19,7 +19,7 @@ pub fn run() {
     empty_string.push_str(" World !!");
     println!("s = {}", empty_string);
 
-    // concatenation of strings
+    //* Concatenation of strings
     // the add overload operator in String consumes the first string and takes a reference to the second one
     let s1 = "hello".to_string();
     let s2 = " Rust!!".to_string();
@@ -28,7 +28,7 @@ pub fn run() {
     println!("s3 = {}", s3);
 
     // A Better way to concatenation
-    let s4 = format!("{0}-{0}-{0}-{0}", s3);
+    let s4 = format!("{0}- {0}- {0}- {0}", s3);
     println!("s4 = {}", s4);
 
     // Slicing Strings

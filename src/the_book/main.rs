@@ -6,7 +6,6 @@
 // mod enums;
 // mod strings;
 // mod error_handling;
-
 // mod generics_and_traits;
 // mod life_time;
 mod testing;
@@ -14,7 +13,7 @@ mod testing;
 fn main() {
     // guessing_game_tutorial::run();
     // var_and_mut::run();
-    //  ownership::run();
+    // ownership::run();
     // references_and_borrowing::run();
     // structs::run();
     // enums::run();

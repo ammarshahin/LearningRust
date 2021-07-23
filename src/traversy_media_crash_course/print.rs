@@ -31,7 +31,7 @@ pub fn run() {
     println!("10 + 10 = {}", 10 + 10);
 
     // format
-    let my_name = format!("ammar shahin");
+    let my_name = format!("John Doe");
 
     println!("my name is {}", my_name);
 }

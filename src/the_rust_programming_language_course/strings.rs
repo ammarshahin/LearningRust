@@ -23,7 +23,7 @@ pub fn run() {
         a += 1; // increment the a variable >> this cannot be done on chars
     }
     // to push a full string at the end of another
-    s2.push_str(" ammar shahin!!");
+    s2.push_str(" John Doe!!");
     println!("s2 = {}", s2);
 
     // Concatenation is done >> str3(String) = str2(String) + str1(&str)
@@ -34,7 +34,7 @@ pub fn run() {
     println!("s4 = {}", s4.replace("any", "Any")); // this will return a new string that is manipulated from the previous s4 >> s4 is still the same
     println!("s4 = {}", s4);
 
-    let name = "Ammar Shahin";
+    let name = "John Doe";
     let greetings = format!("hi, my name is {}", name); // format! macro companies strings and return a String
     println!("{}", greetings);
 }

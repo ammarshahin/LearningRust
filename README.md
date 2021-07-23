@@ -1,6 +1,6 @@
 <h1>Learning Rust </h1>
-<h2>Some fundamentals of the Rust language.</h2>
-<h2>Resources of study: </h2>
+Some fundamentals of the Rust language.
+<h3>Resources of study: </h3>
 
  - [Official Book "the book!"](https://doc.rust-lang.org/book/)
 
@@ -12,4 +12,4 @@
 
  - [Learn Rust by Building Real Applications on udemy](https://www.udemy.com/course/rust-fundamentals/)
 
- - [The crust of rust by Jon Gjengset on youtube](https://www.youtube.com/playlist?list=PLqbS7AVVErFiWDOAVrPt7aYmnuuOLYvOa)
+ - [The Crust of Rust by Jon Gjengset on youtube](https://www.youtube.com/playlist?list=PLqbS7AVVErFiWDOAVrPt7aYmnuuOLYvOa)
