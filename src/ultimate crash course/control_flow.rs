@@ -1,10 +1,11 @@
 // Silence some warnings so they don't distract from the exercise.
 #![allow(dead_code, unused_mut, unused_variables)]
 
-//* if and loops take only boolean expressions as conditions >> no integers
+//* if and while loops take only boolean expressions as conditions >> no integers
 
 pub fn run() {
     const CONDITION: bool = true;
+
     let x = if CONDITION { 5 } else { 6 }; //* if is an expression not a statement >> no semicolon then no return needed
     println!("x = {}", x);
 
@@ -28,7 +29,8 @@ pub fn run() {
         break;
     }
 
-    for parm in [7, 66, 25].iter() {
+    //* loop over the elements of an array
+    for parm in [7, 66, 25] {
         println!("parm = {}", parm);
     }
 
@@ -50,6 +52,7 @@ pub fn run() {
     // ...produces the equivalent of
     //
     //     vec!["apple".to_string(), "banana".to_string()]
+
     let args: Vec<String> = std::env::args().skip(1).collect();
 
     // This consumes the `args` vector to iterate through each String

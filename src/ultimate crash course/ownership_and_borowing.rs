@@ -21,7 +21,7 @@ pub fn run() {
     // `cargo run apple`.  Hint: use `.push_str("s")` on the mutable String reference to add an "s".
     //
     change(&mut arg);
-    println!("I have many {}", arg);
+    println!("I have many {}", arg); // still in scope
 
     // 3. Write a function `eat` that accepts ownership of (consumes) a String and returns a bool
     // indicating whether or not the String both starts with a "b" AND contains an "a".
@@ -43,7 +43,7 @@ pub fn run() {
 }
 
 fn add(x: &i32, y: &i32) -> i32 {
-    (*x) + (*y) // same as >>  x + y
+    x + y // same as >>  (*x) + (*y)
 }
 
 fn eat(s: String) -> bool {

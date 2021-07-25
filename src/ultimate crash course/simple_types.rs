@@ -2,27 +2,15 @@
 #![allow(dead_code, unused_variables)]
 
 pub fn run() {
-    let coords: (f32, f32) = (6.3, 15.0);
-    // 1. Pass parts of `coords` to the `print_difference` function. This should show the difference
-    // between the two numbers in coords when you do `cargo run`.  Use tuple indexing.
-    //
-    // The `print_difference` function is defined below the `main` function. It may help if you look
-    // at how it is defined.
-    //
+    //* Tuples
+    let coords: (f32, f32) = (6.3, 15.0); // single elements are accessible by the coords.0 and coords.1
     print_difference(coords.0, coords.1);
 
-    // 2. We want to use the `print_array` function to print coords...but coords isn't an array!
-    // Create an array of type [f32; 2] and initialize it to contain the
-    // information from coords.  Uncomment the print_array line and run the code.
-    //
-    let coords_arr: [f32; 2] = [coords.0, coords.1]; // create an array literal out of parts of `coord` here
+    //* Arrays
+    let coords_arr: [f32; 2] = [coords.0, coords.1]; // single elements are accessible by the coords[0] and coords[1]
     print_array(coords_arr); // and pass it in here (this line doesn't need to change)
 
-    let series = [1, 1, 2, 3, 5, 8, 13];
-    // 3. Make the `ding` function happy by passing it the value 13 out of the `series` array.
-    // Use array indexing.  Done correctly, `cargo run` will produce the additional output
-    // "Ding, you found 13!"
-    //
+    let series: [i32; 7] = [1, 1, 2, 3, 5, 8, 13];
     ding(series[6]);
 
     let mess = ([3, 2], 3.14, [(false, -3), (true, -100)], 5, "candy");

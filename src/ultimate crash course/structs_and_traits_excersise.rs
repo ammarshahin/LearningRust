@@ -1,19 +1,23 @@
 // 1. Define a trait named `Bite`
 //
-// Define a single required method, `fn bite(self: &mut Self)`.  We will call this method when we
+// Define a single required method, `fn bite(&mut self)`.  We will call this method when we
 // want to bite something.  Once this trait is defined, you should be able to run the program with
 // `cargo run` without any errors.
 //
 trait Bite {
-    fn bite(self: &mut Self);
+    fn bite(&mut self);
 }
 
-fn bunny_nibbles<T: Bite>(item: &mut T) {
+fn bunny_nibbles<T>(item: &mut T)
+where
+    T: Bite,
+{
     item.bite();
     item.bite();
     item.bite();
     item.bite();
 }
+
 // 2. Now create a struct named Grapes with a field that tracks how many grapes are left.  If you
 // need a hint, look at how it was done for Carrot at the bottom of this file (you should probably
 // use a different field, though).

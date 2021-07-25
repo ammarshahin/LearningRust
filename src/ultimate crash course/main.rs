@@ -1,10 +1,10 @@
 // mod variables;
 // mod functions;
-// use rand::{thread_rng, Rng}; // import multiple traits from the same crate
+//use rand::{thread_rng, Rng}; // import multiple traits from the same crate
 // mod simple_types;
 // mod control_flow;
 // mod ownership_and_borowing;
-//mod structs_and_traits;
+// mod structs_and_traits;
 // mod structs_and_traits_excersise;
 // mod collections;
 // mod enums;

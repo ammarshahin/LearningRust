@@ -4,7 +4,10 @@ trait Area {
 }
 
 // generic functions that takes a generic type T
-fn shape_get_area<T: Area>(item: T) {
+fn shape_get_area<T>(item: T)
+where
+    T: Area,
+{
     println!("the area = {}", item.get_area());
 }
 
@@ -42,6 +45,7 @@ impl Rectangle {
     }
 }
 
+// trait implementation for the Struct Rectangle
 impl Area for Rectangle {
     fn get_area(&self) -> u8 {
         return self.height * self.width;
@@ -72,27 +76,27 @@ impl Area for Triangle {
 pub fn run() {
     // create an object
     //* using the explicit constructor
-    let c2 = Rectangle::new(6, 4);
+    let rec_one = Rectangle::new(6, 4);
 
     // access the struct elements
     println!(
         "area of the rectangle {} * {} = {}",
-        c2.get_width(),
-        c2.get_height(),
-        c2.get_area()
+        rec_one.get_width(),
+        rec_one.get_height(),
+        rec_one.get_area()
     );
 
     // using the implicit constructor
-    let mut c1 = Rectangle {
+    let mut rec_two = Rectangle {
         height: 6,
         width: 4,
     };
     //* change the internal attributes using the setters
-    c1.change_width(8);
-    c1.change_height(8);
+    rec_two.change_width(8);
+    rec_two.change_height(8);
 
     // using the Area trait
-    shape_get_area(c1);
+    shape_get_area(rec_two);
 
     let t = Triangle::new(6, 3);
 
