@@ -1,5 +1,6 @@
 mod bubblesort;
 mod insertionsort;
+mod quicksort;
 mod selectionsort;
 
 pub trait Sorter {
@@ -21,6 +22,7 @@ mod tests {
   use super::*;
   use bubblesort::BubbleSort;
   use insertionsort::InsertionSort;
+  use quicksort::QuickSort;
   use selectionsort::SelectionSort;
 
   /****** healthy check *******/
@@ -79,6 +81,21 @@ mod tests {
 
     let mut w3 = vec![1250, 858, 14, 2, 8, 3, 1250];
     SelectionSort::sort(&mut w3);
+    assert_eq!(w3, vec![2, 3, 8, 14, 858, 1250, 1250]);
+  }
+
+  #[test]
+  fn quick_sort_works() {
+    let mut w1 = vec![2, 8, 1, 99, 27, 3];
+    QuickSort::sort(&mut w1);
+    //assert_eq!(w1, vec![1, 2, 3, 8, 27, 99]);
+
+    let mut w2 = vec![287, 8, 15, 98, 27, 3];
+    QuickSort::sort(&mut w2);
+    assert_eq!(w2, vec![3, 8, 15, 27, 98, 287]);
+
+    let mut w3 = vec![1250, 858, 14, 2, 8, 3, 1250];
+    QuickSort::sort(&mut w3);
     assert_eq!(w3, vec![2, 3, 8, 14, 858, 1250, 1250]);
   }
 }

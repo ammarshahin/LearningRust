@@ -6,18 +6,18 @@ impl Sorter for SelectionSort {
   where
     T: Ord,
   {
-    const SMART: bool = true;
+    const SMART: bool = false;
     // [sorted | unsorted]
     for unsorted in 0..slice.len() {
       let mut smallest_in_unsorted;
 
       if SMART {
-        let (the_smallest_in_unsorted, _) = slice[unsorted..]
+        smallest_in_unsorted = slice[unsorted..]
           .iter()
           .enumerate()
           .min_by_key(|&(_, v)| v)
-          .expect("msg");
-        smallest_in_unsorted = the_smallest_in_unsorted + unsorted;
+          .map(|(i, _)| i + unsorted)
+          .expect("Slice is empty !!!");
       } else {
         smallest_in_unsorted = unsorted;
         for i in (unsorted + 1)..slice.len() {

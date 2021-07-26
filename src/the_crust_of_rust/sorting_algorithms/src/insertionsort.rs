@@ -18,7 +18,7 @@ impl Sorter for InsertionSort {
         let start = slice[..unsorted]
           .binary_search(&slice[unsorted])
           .unwrap_or_else(|i| i);
-        //* is the same ===
+        //* Or
         // let start = match slice[..unsorted].binary_search(&slice[unsorted]) {
         //     Ok(i) => i,  // will return the element position if it was found
         //     Err(i) => i, // will return the appropriate element position (to keep the slice sorted) if the element wasn't found
