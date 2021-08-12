@@ -16,8 +16,15 @@ impl<T> Mutex<T> {
     }
   }
 
+  /// ! WARNING: we are using spin lock >> which is really really BAD !!!!
   pub fn with_lock<R>(&self, f: impl FnOnce(&mut T) -> R) -> R {
-    while self.lock.load(Ordering::Relaxed) == LOCKED {}
+    while self
+      .lock
+      .compare_exchange_weak(UNLOCKED, LOCKED, Ordering::Relaxed, Ordering::Relaxed)
+      .is_err()
+    {
+      while self.lock.load(Ordering::Relaxed) == LOCKED {}
+    }
     self.lock.store(LOCKED, Ordering::Relaxed);
     let ret = f(unsafe { &mut *self.v.get() });
     self.lock.store(UNLOCKED, Ordering::Relaxed);
@@ -32,16 +39,14 @@ mod tests {
   use super::*;
   use std::thread;
   #[test]
-  fn it_works_10_threads() {
-    const THREADS_NUM: i32 = 10;
+  fn the_wrong_way_works() {
+    const THREADS_NUM: i32 = 1000;
     let l: &'static _ = Box::leak(Box::new(Mutex::new(0)));
     let handles: Vec<_> = (0..THREADS_NUM)
       .map(|_| {
         thread::spawn(move || {
           for _ in 0..THREADS_NUM {
-            l.with_lock(|v: &mut i32| {
-              *v += 1;
-            });
+            l.with_lock(|v: &mut i32| *v += 1);
           }
         })
       })
