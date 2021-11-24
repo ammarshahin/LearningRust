@@ -79,7 +79,7 @@ async fn upload(form: FormData) -> Result<impl Reply, Rejection> {
           eprintln!("reading file error: {}", e);
           warp::reject::reject()
         })?;
-
+      println!("{:?}", value);
       let file_name = format!("./files/{}.{}", Uuid::new_v4().to_string(), file_ending);
       tokio::fs::write(&file_name, value).await.map_err(|e| {
         eprint!("error writing file: {}", e);
