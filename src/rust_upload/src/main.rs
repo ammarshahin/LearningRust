@@ -46,27 +46,26 @@ async fn upload(form: FormData) -> Result<impl Reply, Rejection> {
 
   for p in parts {
     println!("{}.{:?}", p.name(), p.content_type());
-    if p.name() == "file" {
-      let content_type = p.content_type();
-      let file_ending;
-      match content_type {
-        Some(file_type) => match file_type {
-          "application/pdf" => {
-            file_ending = "pdf";
-          }
-          "image/png" => {
-            file_ending = "png";
-          }
-          v => {
-            eprintln!("invalid file type found: {}", v);
-            return Err(warp::reject::reject());
-          }
-        },
-        None => {
-          eprintln!("file type could not be determined");
+    let content_type = p.content_type();
+    let file_ending;
+    match content_type {
+      Some(file_type) => match file_type {
+        "application/pdf" => {
+          file_ending = "pdf";
+        }
+        "image/png" => {
+          file_ending = "png";
+        }
+        v => {
+          eprintln!("invalid file type found: {}", v);
           return Err(warp::reject::reject());
         }
+      },
+      None => {
+        eprintln!("file type could not be determined");
+        return Err(warp::reject::reject());
       }
+    }
 
       let value = p
         .stream()
@@ -83,11 +82,26 @@ async fn upload(form: FormData) -> Result<impl Reply, Rejection> {
       let file_name = format!("./files/{}.{}", Uuid::new_v4().to_string(), file_ending);
       tokio::fs::write(&file_name, value).await.map_err(|e| {
         eprint!("error writing file: {}", e);
+    /* 
+        let value = p
+      .stream()
+      .try_fold(Vec::new(), |mut vec, data| {
+        vec.put(data);
+        async move { Ok(vec) }
+      })
+      .await
+      .map_err(|e| {
+        eprintln!("reading file error: {}", e);
         warp::reject::reject()
       })?;
-      println!("created file: {}", file_name);
-    }
-  }
 
+    let file_name = format!("./files/{}.{}", Uuid::new_v4().to_string(), file_ending);
+    tokio::fs::write(&file_name, value).await.map_err(|e| {
+      eprint!("error writing file: {}", e);
+      warp::reject::reject()
+    })?;
+    println!("created file: {}", file_name);
+  }
+  */
   Ok("success")
 }
