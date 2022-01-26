@@ -20,6 +20,3 @@ jobs:
 
       - name: Lint
         uses: actions/super_linter@v4
-        env:
-          DEFAULT_BRANCH: master
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
