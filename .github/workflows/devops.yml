@@ -19,7 +19,7 @@ jobs:
         run: cargo test --verbose
 
       - name: Lint
-        uses: actions/super_linter@v3
+        uses: actions/super_linter@v4
         env:
           DEFAULT_BRANCH: master
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
