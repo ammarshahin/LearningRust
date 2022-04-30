@@ -1,12 +1,12 @@
 fn main() {
-  println!("Hello, world! {}", fun());
+  println!("{}", fun());
 }
 
-fn fun() -> i32 {
-  5
+fn fun() -> String {
+  "Hello, world! ".to_string()
 }
 
 #[test]
 fn test_fun() {
-  assert_eq!(fun(), 5);
+  assert_eq!(fun(), "Hello, world! ");
 }
