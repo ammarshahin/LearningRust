@@ -27,7 +27,6 @@ fn main() {
   // guessing_game::run();
   // closures::run();
   higher_order_functions::run();
-	
   // traits::run();
   // into_trait::run();
   // drop_trait::run();

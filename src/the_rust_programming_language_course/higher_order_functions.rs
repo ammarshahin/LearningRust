@@ -19,7 +19,9 @@ pub fn run() {
     .take_while(|&x| x < limit) // set the limit of our range >> take value that satisfy the following condition (defined in the closure)
     .filter(|x| x % 2 == 0) // filter the full range to satisfy the following condition (x % 2 == 0)
     .fold(0, |sum, x| sum + x); // fold the full range to a single value (single_value_init, closure_that_fold_the_full_range())
-  println!("sum = {}", sum2);
+		// .sum()    // ....Alternatively >> we can use the "sum" function to return the vector sum instead of "fold"
+	
+		println!("sum = {:?}", sum2);
 }
 
 // the greater_than function returns a function(closure |x: u32|-> bool { y > limit })
