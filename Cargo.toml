@@ -1,5 +1,5 @@
 [package]
-name = "learning_rust_repo"
+name = "learning_rust"
 version = "0.4.0"
 authors = ["ammarshahin <ammar0shahin@gmail.com>"]
 edition = "2018"
@@ -10,5 +10,6 @@ edition = "2018"
 rand = "0.5.5"
 
 [[bin]]
-name = "learning_rust_repo"
-path = "src/the_rust_programming_language_course/main.rs"
+name = "learning_rust"
+# path = "src/the_rust_programming_language_course/main.rs"
+path = "src/rhymu_tutorial/src/main.rs"
