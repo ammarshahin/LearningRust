@@ -7,28 +7,23 @@ pub fn run() {
   hands.report();
 }
 
+#[derive(Clone, Debug, PartialEq)]
 struct Hands {
-  left: Item,
-  right: Item,
+  left: Option<String>,
+  right: Option<String>,
 }
 
 impl Hands {
   fn new(left_holds: &str, right_holds: &str) -> Self {
     Self {
-      left: Item {
-        what: left_holds.to_owned(),
-        present: true,
-      },
-      right: Item {
-        what: right_holds.to_owned(),
-        present: true,
-      },
+      left: Some(left_holds.to_owned()),
+      right: Some(right_holds.to_owned()),
     }
   }
 
   fn report(&self) {
-    Item::report_item(&self.left, "Left");
-    Item::report_item(&self.right, "Right");
+    report_item(&self.left, "Left");
+    report_item(&self.right, "Right");
   }
 
   fn juggle(&mut self) {
@@ -39,21 +34,12 @@ impl Hands {
   }
 }
 
-#[derive(Clone)]
-struct Item {
-  what: String,
-  present: bool,
-}
-
-impl Item {
-  fn new(what: String, present: bool) -> Self {
-    Self { what, present }
-  }
-
-  fn report_item(&self, arg: &str) {
-    if self.present {
-      println!("{} hand is holding {}", arg, self.what);
-    } else {
+fn report_item(item: &Option<String>, arg: &str) {
+  match item {
+    Some(what) => {
+      println!("{} hand is holding {}", arg, what);
+    }
+    _ => {
       println!("{} hand is not holding anything!!", arg);
     }
   }
@@ -65,10 +51,10 @@ mod tests {
   #[test]
   fn create_hands() {
     let mut hands = Hands::new("bnanna", "apple");
+    let expected_hands = Hands::new("apple", "bnanna");
     hands.report();
     hands.juggle();
     hands.report();
-    assert_eq!(hands.right.what, "bnanna".to_owned());
-    assert_eq!(hands.left.what, "apple".to_owned());
+    assert_eq!(hands, expected_hands);
   }
 }
