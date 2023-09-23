@@ -1,3 +1,5 @@
+mod hands_ex;
+
 fn main() {
-  println!("Hello, world!");
+  hands_ex::run();
 }
