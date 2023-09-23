@@ -1,4 +1,9 @@
-#![allow(clippy::needless_return, unused_parens, clippy::clone_on_copy)]
+#![allow(
+  clippy::needless_return,
+  unused_parens,
+  clippy::clone_on_copy,
+  dead_code
+)]
 use std::collections::HashMap;
 use std::sync::Mutex;
 

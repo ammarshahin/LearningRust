@@ -1,3 +1,5 @@
+#![allow(dead_code)]
+
 pub fn run() {
   let mut hands = Hands::new("bnanna", "apple");
   hands.report();
@@ -5,13 +7,13 @@ pub fn run() {
   hands.report();
 }
 
-pub struct Hands {
+struct Hands {
   left: Item,
   right: Item,
 }
 
 impl Hands {
-  pub fn new(left_holds: &str, right_holds: &str) -> Self {
+  fn new(left_holds: &str, right_holds: &str) -> Self {
     Self {
       left: Item {
         what: left_holds.to_owned(),
@@ -24,12 +26,12 @@ impl Hands {
     }
   }
 
-  pub fn report(&self) {
+  fn report(&self) {
     Item::report_item(&self.left, "Left");
     Item::report_item(&self.right, "Right");
   }
 
-  pub fn juggle(&mut self) {
+  fn juggle(&mut self) {
     println!("Let's juggle!!!");
     let temp = self.left.clone();
     self.left = self.right.clone();
@@ -44,14 +46,13 @@ struct Item {
 }
 
 impl Item {
-  #[allow(dead_code)]
   fn new(what: String, present: bool) -> Self {
     Self { what, present }
   }
 
-  fn report_item(hand: &Item, arg: &str) {
-    if hand.present {
-      println!("{} hand is holding {}", arg, hand.what);
+  fn report_item(&self, arg: &str) {
+    if self.present {
+      println!("{} hand is holding {}", arg, self.what);
     } else {
       println!("{} hand is not holding anything!!", arg);
     }

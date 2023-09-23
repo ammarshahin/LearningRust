@@ -1,9 +1,11 @@
 #[macro_use]
 extern crate lazy_static;
+mod borrowing;
 mod dyn_prog;
-mod hands_ex;
+mod generics;
 
 fn main() {
-  // hands_ex::run();
-  dyn_prog::run();
+  borrowing::run();
+  // dyn_prog::run();
+  // generics::run();
 }
