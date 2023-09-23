@@ -5,7 +5,7 @@ mod dyn_prog;
 mod generics;
 
 fn main() {
-  borrowing::run();
+  // borrowing::run();
   // dyn_prog::run();
-  // generics::run();
+  generics::run();
 }
