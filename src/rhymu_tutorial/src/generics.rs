@@ -1,8 +1,8 @@
 #![allow(dead_code)]
-use std::fmt::Debug;
+use std::fmt::{Debug, Display};
 
 pub fn run() {
-  let mut hands = Hands::new(&Fruit::Apple, &Fruit::Bnanna);
+  let mut hands = Hands::new(&Fruit::Apple, &Fruit::Banana);
   hands.report();
   hands.juggle();
   hands.report();
@@ -16,7 +16,7 @@ struct Hands<T> {
 
 impl<T> Hands<T>
 where
-  T: Debug + Clone,
+  T: Display + Clone,
 {
   fn new(left_holds: &T, right_holds: &T) -> Self {
     Self {
@@ -38,10 +38,10 @@ where
   }
 }
 
-fn report_item<T: Debug>(item: &Option<T>, arg: &str) {
+fn report_item<T: Display>(item: &Option<T>, arg: &str) {
   match item {
     Some(what) => {
-      println!("{} hand is holding a {:?}", arg, what);
+      println!("{} hand is holding {}", arg, what);
     }
     _ => {
       println!("{} hand is not holding anything!!", arg);
@@ -52,8 +52,18 @@ fn report_item<T: Debug>(item: &Option<T>, arg: &str) {
 #[derive(Clone, Debug, PartialEq)]
 enum Fruit {
   Apple,
-  Bnanna,
+  Banana,
   Kiwi,
+}
+
+impl Display for Fruit {
+  fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
+    match self {
+      Fruit::Apple => write!(f, "an Apple"),
+      Fruit::Banana => write!(f, "a Banana"),
+      Fruit::Kiwi => write!(f, "a Kiwi"),
+    }
+  }
 }
 
 #[cfg(test)]
@@ -61,8 +71,8 @@ mod tests {
   use super::*;
   #[test]
   fn create_hands_string() {
-    let mut hands = Hands::new(&"bnanna".to_owned(), &"apple".to_owned());
-    let expected_hands = Hands::new(&"apple".to_owned(), &"bnanna".to_owned());
+    let mut hands = Hands::new(&"banana".to_owned(), &"apple".to_owned());
+    let expected_hands = Hands::new(&"apple".to_owned(), &"banana".to_owned());
     hands.report();
     hands.juggle();
     hands.report();
@@ -91,8 +101,8 @@ mod tests {
 
   #[test]
   fn create_hands_fruit() {
-    let mut hands = Hands::new(&Fruit::Apple, &Fruit::Bnanna);
-    let expected_hands = Hands::new(&Fruit::Bnanna, &Fruit::Apple);
+    let mut hands = Hands::new(&Fruit::Apple, &Fruit::Banana);
+    let expected_hands = Hands::new(&Fruit::Banana, &Fruit::Apple);
     hands.report();
     hands.juggle();
     hands.report();
