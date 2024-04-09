@@ -1,7 +1,7 @@
 #![allow(dead_code)]
 
 pub fn run() {
-  let mut hands = Hands::new("bnanna", "apple");
+  let mut hands = Hands::new("banana", "apple");
   hands.report();
   hands.juggle();
   hands.report();
@@ -50,8 +50,8 @@ mod tests {
   use super::*;
   #[test]
   fn create_hands() {
-    let mut hands = Hands::new("bnanna", "apple");
-    let expected_hands = Hands::new("apple", "bnanna");
+    let mut hands = Hands::new("banana", "apple");
+    let expected_hands = Hands::new("apple", "banana");
     hands.report();
     hands.juggle();
     hands.report();
