@@ -1,4 +1,4 @@
-// mod guessing_game_tutorial;
+mod guessing_game_tutorial;
 // mod var_and_mut;
 // mod ownership;
 // mod references_and_borrowing;

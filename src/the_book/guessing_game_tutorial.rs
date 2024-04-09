@@ -1,3 +1,5 @@
+#![warn(clippy::use_debug)]
+
 //*  trait defines methods that random number generators implement
 use rand::Rng;
 
@@ -11,10 +13,10 @@ pub fn run() {
     //* thread_rng() : will give us the particular random number generator
     //* gen_range() :  it takes two numbers as arguments and generates a random number between them
     // Create and generate the secret number
-    let secret_number = rand::thread_rng().gen_range(1, 101);
+    let secret_number = rand::thread_rng().gen_range(1..101);
 
     // print the secret number
-    println!("The secret number is: {}", secret_number);
+    dbg!(secret_number);
 
     loop {
         println!("Please input your guess.");

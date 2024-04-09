@@ -13,5 +13,4 @@ num = "0.4"
 
 [[bin]]
 name = "learning_rust"
-# path = "src/the_rust_programming_language_course/main.rs"
 path = "src/rhymu_tutorial/src/main.rs"
