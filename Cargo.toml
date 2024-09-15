@@ -10,7 +10,8 @@ edition = "2021"
 rand = "0.8"
 lazy_static = "1.4"
 num = "0.4"
+chrono = "0.4"
 
 [[bin]]
 name = "learning_rust"
-path = "src/testing/src/main.rs"
+path = "src/exercism/goldbach_conjecture/main.rs"
