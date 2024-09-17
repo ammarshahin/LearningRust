@@ -1,11 +1,27 @@
+#[macro_use]
+extern crate lazy_static;
+use std::collections::HashMap;
+use std::sync::Mutex;
+
 #[derive(PartialEq, Debug)]
 enum Type {
   Odd,
   Even,
 }
 
+lazy_static! {
+  static ref HASHMAP: Mutex<HashMap<u128, bool>> = {
+    let mut map = HashMap::new();
+    map.insert(0, false);
+    map.insert(1, false);
+    map.insert(2, true);
+    map.insert(3, true);
+    Mutex::new(map)
+  };
+}
+
 fn main() {
-  for i in (1_000_000..10_000_000).step_by(2) {
+  for i in (2..1370840).step_by(2) {
     match goldbach_numbers(i) {
       Ok((n1, n2)) => {
         println!("{}= {} + {}", i, n1, n2);
@@ -40,12 +56,24 @@ fn is_prime(n: u128) -> Result<(), ()> {
     return Err(());
   }
 
-  // Check for divisors from 2 to n-1
-  for i in 2..((n / 2) + 1) {
-    // If n is divisible by any number in this range, it is not prime
-    if n % i == 0 {
+  //check if the number exists in the DB
+  let mut map = HASHMAP.lock().unwrap();
+  if let Some(_is_prime) = map.get_mut(&n) {
+    if _is_prime.to_owned() {
+      return Ok(());
+    } else {
       return Err(());
     }
+  } else {
+    // Check for divisors from 2 to n-1
+    for i in 2..((n / 2) + 1) {
+      // If n is divisible by any number in this range, it is not prime
+      if n % i == 0 {
+        map.insert(n, false);
+        return Err(());
+      }
+    }
+    map.insert(n, true);
   }
 
   // If no divisors are found, it is prime
@@ -71,7 +99,7 @@ mod tests {
   #[test]
   /// Test if the goldbach conjecture holds up to a specific number
   fn test_goldbach() {
-    for i in (4..100).step_by(2) {
+    for i in (4..1_000_000).step_by(2) {
       assert!(super::goldbach_numbers(i).is_ok());
     }
   }
