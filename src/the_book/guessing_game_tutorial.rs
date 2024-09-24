@@ -6,8 +6,6 @@ use rand::Rng;
 //* Ordering : is an enum {Less, Greater, Equal}
 use std::cmp::Ordering;
 
-pub 
-
 pub fn run() {
   // print a line
   println!("Guess the number!");
@@ -59,9 +57,7 @@ pub fn run() {
   }
 }
 
-mod testing{
+mod testing {
   #[test]
-  fn check_if_bigger_number_will_give_greater(){
-
-  }
+  fn check_if_bigger_number_will_give_greater() {}
 }

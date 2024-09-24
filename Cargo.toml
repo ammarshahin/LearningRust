@@ -14,4 +14,4 @@ chrono = "0.4"
 
 [[bin]]
 name = "learning_rust"
-path = "src/exercism/goldbach_conjecture/main.rs"
+path = "src/the_book/main.rs"
