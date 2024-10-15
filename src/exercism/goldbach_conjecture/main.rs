@@ -21,14 +21,17 @@ lazy_static! {
 }
 
 fn main() {
-  for i in (2..1370840).step_by(2) {
+  let max = 2_u128.pow(128) - 1;
+  println!("max: {}", max);
+  for i in (4..max).step_by(2) {
     match goldbach_numbers(i) {
       Ok((n1, n2)) => {
         println!("{}= {} + {}", i, n1, n2);
       }
       Err(num_type) => match num_type {
         Type::Even => {
-          println!("{}: is Even, Theory Wrong!!!!", i)
+          println!("{}: is Even, Theory Wrong!!!!", i);
+          break;
         }
         Type::Odd => println!("{}: is Odd, Doesn't have to be tested!", i),
       },
